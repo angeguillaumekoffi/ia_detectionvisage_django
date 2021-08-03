@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(+9phc&w*-no+%z-=6fgo-@7xma%8-$wwcg8uff8c6yizyvmtx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -96,7 +96,7 @@ USE_TZ = True
 # Fichiers statiques (CSS, JavaScript, Images)
 STATIC_URL = '/fichiers_statiques/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "fichiers_statiques")]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'fichiers_statique')
 
 # Type par defaut des clés primaires
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
