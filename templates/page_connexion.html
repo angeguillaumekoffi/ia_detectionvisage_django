@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titre %}connexion{% endblock titre %}
+{% block contenuBody %}
+<form action="" method="post" class="formulaire_auth">
+    {% csrf_token %}
+    <h2>Connexion</h2>
+    <input type="text" placeholder="Nom d'utilisateur" name="username">
+    {{ form.username.errors }}
+    <input type="password" placeholder="Mot de passe" name=password>
+    {{ form.password.errors }}
+    
+    {{ form.non_field_errors }}
+    <button class="btn btn-danger" type="submit">Se connecter</button>
+    <p>Vous n'avez pas de compte ? Faites votre <a href="{% url 'page_inscription' %}">inscription</a> !</p>
+</form>
+{% endblock contenuBody %}

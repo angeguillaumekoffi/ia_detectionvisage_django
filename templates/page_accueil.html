@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titre %}accueil{% endblock titre %}
+
+
+{% block contenuBody %}
+<!-- Enête de la page/ bar de navigation de haut-->
+<div class="bar-navig-top">
+  <span>{{ user.username }}, bienvenue sur la plateforme de détection de visage humain !</span>
+  <a href="{% url 'deconnexion' %}" class="btn btn-sm btn-danger"> Déconnexion <i class="fa fa-sign-out"></i> </a>
+</div>
+
+<form class="cadre_facedetect"  action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+
+  <!-- Zone de rendu de l'image -->
+  <div class="zone-image">
+    <div class="cadre-image">
+      <img id="rendu_img" src="" alt="">
+    </div>
+  </div>
+  <br>
+  <!-- Cadre d'importation de l'image -->
+  <div class="chage-image">
+    <input type="file" class="btn btn-sm btn-info" accept="image/jpeg,image/jpg,image/png" id="import_img" name="fichier_image"> 
+    <input type="text" placeholder="Insérer une url d'image ici" name="url_image">
+  </div>
+  <br>
+  <!-- Bouton de soummission de l'image pour analyse-->
+  <div class="bouton">
+    <button type="submit" class="btn btn-sm btn-warning">Générer la détection 
+      <i class="fa fa-eye"></i> 
+      <img src="{% static 'images/loader.gif' %}" width="20" id="loader">
+    </button>
+  </div>
+</form>
+{% endblock contenuBody %}
+
+{% block scripts %}
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock scripts %}

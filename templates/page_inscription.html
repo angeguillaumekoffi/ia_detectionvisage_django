@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titre %}inscription{% endblock titre %}
+
+{% block contenuBody %}
+<form action="" method="post" class="formulaire_auth">
+    {% csrf_token %}
+    <h2>Inscription</h2>
+    {% for champ in formulaire %}
+        {{ champ.label_tag }}
+        {{ champ }}
+
+        {% for error in champ.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    <button class="btn btn-danger" type="submit">S'inscrire</button>
+</form>
+{% endblock contenuBody %}

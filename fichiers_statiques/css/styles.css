@@ -1,0 +1,172 @@
+body {
+  background-image: url("../images/fond_accueil.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  font-family: 'Asap', sans-serif;
+  padding: 0;
+}
+
+.bar-navig-top{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10px 20px 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: .5px solid rgb(255, 143, 143);
+  display: flex;
+  justify-content: center;
+}
+
+.bar-navig-top > a{
+  position: absolute;
+  right: 10px;
+}
+
+.bouton{
+  display: flex;
+  justify-content: center;
+}
+
+.zone-image{
+  display: flex;
+  justify-content: center;
+}
+
+.cadre-image{
+  width: 200px;
+  height: 200px;
+  border: 1px solid grey;
+  justify-content: center;
+}
+
+/* Affichage pour mobile et tablette */
+@media (max-width: 700px) {
+    .formulaire_auth {
+        overflow: hidden;
+        background-color: white;
+        padding: 20px 30px 30px 30px;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90vw;
+        transform: translate(-50%, -50%);
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2)
+      }
+    .cadre_facedetect{
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.338);
+        padding: 20px 30px 30px 30px;
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90vw;
+        transform: translate(-50%, -50%);
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+    }
+    .chage-image{
+        width: 100%;
+        display: block;
+        justify-content: space-between;
+    }
+    .chage-image > *{
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .bouton > button{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+/* Affichage pour ordinateur de bureau */
+@media (min-width: 700px) {
+    .formulaire_auth {
+        overflow: hidden;
+        background-color: white;
+        padding: 20px 30px 30px 30px;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        transform: translate(-50%, -50%);
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2)
+      }
+    .cadre_facedetect{
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.338);
+        padding: 20px 30px 30px 30px;
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50vw;
+        transform: translate(-50%, -50%);
+        box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+      }
+      .chage-image{
+        display: grid;
+        grid-template-columns: 30% 69%;
+        justify-content: space-between;
+      }
+
+      .bouton > button{
+        width: 20em;
+        display: flex;
+        justify-content: space-around;
+      }
+}
+
+.formulaire_auth::before, .formulaire_auth::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+}
+  
+.formulaire_auth::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba(69, 105, 144, 0.2);
+  }
+  
+.formulaire_auth::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba(2, 128, 144, 0.2);
+}
+  
+.formulaire_auth  > input {
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgb(255, 232, 232);
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -2px;
+  }
+  
+.formulaire_auth > button {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: -5px;
+} 
+.formulaire_auth > button:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+a{
+    color: rgb(254, 121, 121);
+    text-decoration: none;
+}
