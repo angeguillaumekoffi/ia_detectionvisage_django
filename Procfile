@@ -1,0 +1,1 @@
+web: gunicorn test_getsolupro.wsgi --log-file -
