@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,13 +11,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(+9phc&w*-no+%z-=6fgo-@7xma%8-$wwcg8uff8c6yizyvmtx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
 
 # Application
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,6 +29,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,6 +67,9 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -98,7 +104,7 @@ STATIC_URL = '/fichiers_statiques/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "fichiers_statiques")]
 STATIC_ROOT = os.path.join(BASE_DIR, 'fichiers_statique')
 
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Type par defaut des clés primaires
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -106,6 +112,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'page-accueil/'
 LOGOUT_REDIRECT_URL = '/'
 
-#import dj_database_url
-#prod_db  =  dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(prod_db)
+
