@@ -98,7 +98,7 @@ STATIC_URL = '/fichiers_statiques/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "fichiers_statiques")]
 STATIC_ROOT = os.path.join(BASE_DIR, 'fichiers_statique')
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Type par defaut des clés primaires
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
